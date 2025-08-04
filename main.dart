@@ -10,13 +10,10 @@ void main() {
   
   double convertedToC = fahrenheitToCelsius(fahrenheit);
   print('${fahrenheit}°F = ${convertedToC.toStringAsFixed(1)}°C');
+  
+  describeWeather(celsius);
+  describeWeather(convertedToC);
 
-  print('\n===Weather Description===');
-  describeWeather(20.0);
-  describeWeather(27.0);
-  describeWeather(40.0);
-  describeWeather(37.8);
-  describeWeather(25.0);
 }
 
 double celsiusToFahrenheit (double celsius){
@@ -30,11 +27,19 @@ double fahrenheitToCelsius (double fahrenheit){
 }
 
 
-void describeWeather(double celsius){
+void describeWeather(double celsius) {
   String description;
   String activity;
-  
+
+  if (celsius <= 25.0) {
+    description = 'Warm and pleasant';
+    activity = 'Great weather for outdoor activities!';
+  }
  
- }
+  else {
+    description = 'Extremely hot';
+    activity = 'Avoid outdoor activities during peak hours';
+  }
+
   print('${celsius.toStringAsFixed(1)}°C: $description - $activity');
 }
